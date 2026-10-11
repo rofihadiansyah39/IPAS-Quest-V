@@ -1,9 +1,16 @@
 import { Character, Chapter, Badge, StudentProfile } from '../types/ipas';
+import squadImg from '../assets/images/retro_pixel_characters_squad_1791700779169.jpg';
+import worldMapImg from '../assets/images/retro_world_map_science_1791700793010.jpg';
+import energyLabImg from '../assets/images/retro_energy_lab_backdrop_1791700805400.jpg';
+import biodiversityImg from '../assets/images/retro_nature_biodiversity_1791700817277.jpg';
 
-export const SQUAD_IMAGE = '/src/assets/images/retro_pixel_characters_squad_1791700779169.jpg';
-export const WORLD_MAP_IMAGE = '/src/assets/images/retro_world_map_science_1791700793010.jpg';
-export const ENERGY_LAB_IMAGE = '/src/assets/images/retro_energy_lab_backdrop_1791700805400.jpg';
-export const BIODIVERSITY_IMAGE = '/src/assets/images/retro_nature_biodiversity_1791700817277.jpg';
+export const SQUAD_IMAGE = squadImg;
+export const WORLD_MAP_IMAGE = worldMapImg;
+export const ENERGY_LAB_IMAGE = energyLabImg;
+export const BIODIVERSITY_IMAGE = biodiversityImg;
+
+export const SQUAD_IMAGE_FALLBACK = '/images/retro_pixel_characters_squad_1791700779169.jpg';
+export const WORLD_MAP_IMAGE_FALLBACK = '/images/retro_world_map_science_1791700793010.jpg';
 
 export interface CharacterDialogue {
   intro: string;

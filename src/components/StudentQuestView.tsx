@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Character, StudentProgress } from '../types/ipas';
 import { retroSound } from '../utils/audio';
 import { 
   WORLD_MAP_IMAGE, 
   SQUAD_IMAGE, 
+  SQUAD_IMAGE_FALLBACK,
+  WORLD_MAP_IMAGE_FALLBACK,
   CHAPTERS_DATA 
 } from '../data/ipasData';
 import { 
@@ -14,7 +16,8 @@ import {
   Compass, 
   Zap, 
   Award,
-  Users
+  Users,
+  MapPin
 } from 'lucide-react';
 
 interface Props {
@@ -34,6 +37,9 @@ export const StudentQuestView: React.FC<Props> = ({
   onOpenBadges,
   onOpenLeaderboard,
 }) => {
+  const [squadImgSrc, setSquadImgSrc] = useState<string>(SQUAD_IMAGE);
+  const [mapImgSrc, setMapImgSrc] = useState<string>(WORLD_MAP_IMAGE);
+
   const completedCount = progress.completedChapters.length;
   const progressPercent = Math.round((completedCount / CHAPTERS_DATA.length) * 100);
 
@@ -66,9 +72,14 @@ export const StudentQuestView: React.FC<Props> = ({
           {/* 16:9 Aspect Ratio Container for Full Image View */}
           <div className="w-full aspect-[16/9] relative bg-slate-950 flex items-center justify-center overflow-hidden">
             <img
-              src={SQUAD_IMAGE}
+              src={squadImgSrc}
               alt="Character Select Screen Banu Dara Ian Aga Mia"
               referrerPolicy="no-referrer"
+              onError={() => {
+                if (squadImgSrc !== SQUAD_IMAGE_FALLBACK) {
+                  setSquadImgSrc(SQUAD_IMAGE_FALLBACK);
+                }
+              }}
               className="w-full h-full object-contain sm:object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             />
           </div>
@@ -176,9 +187,14 @@ export const StudentQuestView: React.FC<Props> = ({
       <div className="relative rounded-2xl overflow-hidden border-4 border-slate-800 bg-slate-950 shadow-2xl">
         <div className="relative aspect-[16/9] sm:aspect-[21/9] min-h-[220px] max-h-[380px] w-full overflow-hidden">
           <img
-            src={WORLD_MAP_IMAGE}
+            src={mapImgSrc}
             alt="Peta Petualangan Nusantara IPAS"
             referrerPolicy="no-referrer"
+            onError={() => {
+              if (mapImgSrc !== WORLD_MAP_IMAGE_FALLBACK) {
+                setMapImgSrc(WORLD_MAP_IMAGE_FALLBACK);
+              }
+            }}
             className="w-full h-full object-cover opacity-85"
           />
           <div className="absolute inset-0 bg-slate-950/25" />
