@@ -1,0 +1,6 @@
+{
+  "name": "IPAS Retro Quest: SD Kelas 5",
+  "description": "Petualangan Game Retro Pembelajaran IPAS SD Kelas 5 Kurikulum Merdeka dengan visualisasi karakter Banu, Dara, Ian, Aga, Mia, kuis interaktif berhadiah badge & XP, simulasi sains, dashboard guru real-time, dan portal pemantauan orang tua.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
